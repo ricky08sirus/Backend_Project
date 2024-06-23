@@ -37,11 +37,6 @@ const userSchema = new Schema({
         required: true,
 
     },
-    coverImage:{
-        type: String, // URL
-        required:true,
-
-    },
     coverImage: {
         type: String,
         required: true,
@@ -96,6 +91,8 @@ userSchema.methods.generateAccessToken = function(){//these things are already t
     }
 )
 }
+// ooh accha user mod
+
 
 userSchema.methods.generateRefreshToken = function(){
     return  jwt.sign({
