@@ -198,10 +198,35 @@ const loginUser = asyncHandler(async (req,res) => {
 
 const logoutUser = asyncHandler(async(req,res) =>{
     //first remove the cookie as it is managed by the server
+    User.findByIdAndUpdate(
+        req.user._id,{
+            $set: {
+                refreshToken: undefined
+            }
+
+        },
+        {
+            new: true
+
+        }
+    )    //take the id of the user by using req.user and delete the refreshToken  to logout
+    const options = {
+        httpOnly: true,
+        secure: true
+    }
+
+    return res
+    .status(200)
+    .clearCookie("accessToken",options)
+    .clearCookie("refershToken",options)
+    .json(new ApiResponse(200,{},"user loggedout successfully"))
+    
+
 
 })
 
 export {
     registerUser,
-    loginUser
+    loginUser,
+    logoutUser
 }

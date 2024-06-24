@@ -1,6 +1,7 @@
 import {Router} from "express";
-import { registerUser } from "../controllers/user.controller.js";
-import { upload } from "../middlewares/multer.middleware.js";
+import { loginUser,logoutUser,registerUser } from "../controllers/user.controller.js";
+import { upload} from "../middlewares/multer.middleware.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 const router = Router()
 //array cannot be used with multer as it takes multiple files in single field
 
@@ -16,8 +17,15 @@ router.route("/register").post(
         }
 
     ]),
+
+    
     registerUser
 )
+router.route("/login").post(loginUser)
 
+//some routes which need to be given when user is logged in 
+//secured routes
+
+router.route("/logout").post(verifyJWT , logoutUser)
 
 export default router
