@@ -5,8 +5,9 @@ import {User} from "../models/user.models"
 // import { json } from "express";
 
 //while writing middleware we always write next
-
-export const verifyJWT = asyncHandler(async(req,res,next) =>{
+//as res is not getting used so we can use underscore
+// export const verifyJWT = asyncHandler(async(req,res,next)
+export const verifyJWT = asyncHandler(async(req,_,next) =>{
    try {
      const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer" , "")
      //check if token is not given
@@ -32,7 +33,7 @@ export const verifyJWT = asyncHandler(async(req,res,next) =>{
    } 
    catch (error) {
     throw new ApiError(401,"Unauthorized request")
-    
+
 
     
    }
