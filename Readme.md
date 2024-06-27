@@ -148,7 +148,3 @@ Check for any errors in the server log for more details.
 CONTRIBUTER
 
 Amandeep Yadav
-
-LICENSE :
-
-This project is licensed under the MIT License
