@@ -1,71 +1,112 @@
-Introduction
+INTRODUCTION
+
 This project is a comprehensive user authentication and management system built using Node.js, Express, and MongoDB. It includes features such as user registration, login, logout, password management, token-based authentication, and image upload to Cloudinary.
 
-Installation: 
+INSTALLATION
 
-Clone the repository:  git clone https://github.com/ricky08sirus/Backend_Project.git
+Clone the repository  
 
-Navigate to the project directory: cd Backend_Project
+git clone https://github.com/ricky08sirus/Backend_Project.git
 
-Install the dependencies: npm install
+Navigate to the project directory 
+
+cd Backend_Project
+
+Install the dependencies 
+
+npm install
 
 Set up environment variables by creating a .env file in the root directory:
 
 
 MONGODB_URI=mongodb://localhost:27017/
+
 DB_NAME=yourdbname
+
 PORT=8000
+
 CLOUDINARY_CLOUD_NAME=yourcloudname
+
 CLOUDINARY_API_KEY=yourapikey
+
 CLOUDINARY_API_SECRET=yourapisecret
+
 ACCESS_TOKEN_SECRET=youraccesstokensecret
+
 REFRESH_TOKEN_SECRET=yourrefreshtokensecret
+
 ACCESS_TOKEN_EXPIRY=1h
+
 REFRESH_TOKEN_EXPIRY=7d
+
 CORS_ORIGIN=http://localhost:3000
 
 
-Start the server: npm start
+Start the server 
+
+npm start
 
 The server will run on http://localhost:8000.
 
 Features :
 
 User Registration
+
 User Login
+
 User Logout
+
 Password Management
+
 Token-based Authentication (Access and Refresh Tokens)
+
 Image Upload to Cloudinary
+
 User Profile Management
+
+Still in progress .....
 
 
 Dependencies :
 
-express: Fast, unopinionated, minimalist web framework for Node.js
+express 
 
-mongoose: MongoDB object modeling tool designed to work in an asynchronous environment
+Fast, unopinionated, minimalist web framework for Node.js
 
-jsonwebtoken: JSON Web Token implementation for token-based authentication
+mongoose 
 
-bcrypt: A library to help you hash passwords
+MongoDB object modeling tool designed to work in an asynchronous environment
 
-multer: Middleware for handling multipart/form-data
+jsonwebtoken 
 
-cloudinary: Node.js SDK for uploading images and videos to Cloudinary
+JSON Web Token implementation for token-based authentication
 
-cookie-parser: Parse Cookie header and populate req.cookies with an object keyed by the cookie names
+bcrypt 
+
+A library to help you hash passwords
+
+multer 
+
+Middleware for handling multipart/form-data
+
+cloudinary 
+
+Node.js SDK for uploading images and videos to Cloudinary
+
+cookie-parser 
+
+Parse Cookie header and populate req.cookies with an object keyed by the cookie names
 
 
 
 
-Configuration :
+Configuration 
 
 Ensure the environment variables are correctly set in the .env file. This includes database connection strings, API keys for Cloudinary, and secrets for JWT.
 
-Documentation :
+DOCUMENTATION
 
-Routes : 
+ROUTES 
 
 
 POST /api/v1/users/register
@@ -92,7 +133,7 @@ Updates the current user's account details
 
 
 
-Troubleshooting :
+TROUBLESHOOTING
 
 Ensure MongoDB is running and accessible.
 
@@ -102,10 +143,12 @@ Check for any errors in the server log for more details.
 
 
 
-Contributors :
+
+
+CONTRIBUTER
 
 Amandeep Yadav
 
-License :
+LICENSE :
 
 This project is licensed under the MIT License. See the LICENSE file for details.
