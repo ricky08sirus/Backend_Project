@@ -417,17 +417,21 @@ const getUserChannelProfile = asyncHandler(async(req,res)=>{
 
     const {username} = req.params
 
-    if (!username?.trim) {
+    if (!username?.trim()) {
         throw new ApiError(400,"username is missing")
         
     }
 
     //find the document using username
-    //instead of applying aggregation asfter receiving data from the user we will apply it here itself
+    //instead of applying aggregation after receiving data from the user we will apply it here itself
     const channel = await User.aggregate([
+        //user aggregation pipeline on the user
+        //values which come in result after writing aggregate pipeline are always arrays
+
+
         {
             $match:{
-                username: username?.toLowerCase()
+                username: username?.toLowerCase() //filtered the document
 
             }//now using this document do the lookup
 
@@ -438,7 +442,7 @@ const getUserChannelProfile = asyncHandler(async(req,res)=>{
                 //become prural
                 localField: "_id",
                 foreignField:"channel",
-                as: "suscribers"
+                as: "subscribers"
             }
            
         },
